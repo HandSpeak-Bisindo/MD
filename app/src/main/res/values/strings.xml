@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">HandSpeak</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="login_logo">Login Logo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_btn">Login</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="register">Register</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="full_name">Full Name</string>
+    <string name="home">Home</string>
+    <string name="camera">Camera</string>
+    <string name="profile">Profile</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="input_name">Please input your name</string>
+    <string name="password_empty">Isi Password Terlebih Dahulu</string>
+    <string name="input_email">Email Tidak Valid</string>
+    <string name="email_empty">Isi Email Terlebih Dahulu</string>
+    <string name="input_password">Password Minimal 6 karakter</string>
+    <string name="confirm_password">Confirm Password</string>
+</resources>
