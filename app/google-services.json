@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555356703321",
+    "project_id": "latihan-firebase-d509e",
+    "storage_bucket": "latihan-firebase-d509e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555356703321:android:cc67ae9515d1d3a0c6bf48",
+        "android_client_info": {
+          "package_name": "com.dicoding.handspeak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk0Cqu2t0ntnh1eRA88tlO0NnR7u9nkV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

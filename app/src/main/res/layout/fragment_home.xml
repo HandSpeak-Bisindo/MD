@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Isi konten halaman -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/btn_alfabet"
+        android:layout_width="382dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/grey"
+        android:src="@drawable/alphabetbtn"
+        app:layout_constraintBottom_toTopOf="@+id/btn_katasifat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_katasifat"
+        android:layout_width="382dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/grey"
+        android:src="@drawable/katasifat_btn"
+        app:layout_constraintBottom_toTopOf="@+id/btn_numerik"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_numerik"
+        android:layout_width="382dp"
+        android:layout_height="158dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/grey"
+        android:src="@drawable/numerik_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconTint="@color/blue"
+        app:itemTextColor="@color/blue"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</LinearLayout>
+
+
