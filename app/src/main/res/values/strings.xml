@@ -21,4 +21,30 @@
     <string name="email_empty">Isi Email Terlebih Dahulu</string>
     <string name="input_password">Password Minimal 6 karakter</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="profile_picture">profile pic</string>
+    <string name="profile_name">John</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="welcome">WELCOME TO handspeak</string>
+    <string name="choose_picture">Choose a picture</string>
+    <string name="package_name">com.dicoding.handspeak</string>
+    <string name="result">Hasil</string>
+    <string name="email_profile">username@gmail.com</string>
+    <string name="back_page">back_page</string>
+    <string name="save">Save</string>
+    <string name="seting_profile">Setting Profile</string>
+    <string name="language">Change Language</string>
+    <string name="term_of_service">TO</string>
+    <string name="about">About</string>
+    <string name="rate_app">Rate</string>
+    <string name="Next">next_page</string>
+    <string name="hasil">Jawabannya Adalah Huruf:</string>
+    <string name="retake">retake</string>
+    <string name="image_result">image_result</string>
+    <string name="image_scan">image_scan</string>
+
 </resources>
