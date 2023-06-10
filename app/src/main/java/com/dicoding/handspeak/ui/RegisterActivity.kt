@@ -1,12 +1,11 @@
-package com.dicoding.handspeak
+package com.dicoding.handspeak.ui
 
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Patterns
 import android.widget.Toast
+import com.dicoding.handspeak.R
 import com.dicoding.handspeak.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 

@@ -1,10 +1,11 @@
-package com.dicoding.handspeak
+package com.dicoding.handspeak.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.dicoding.handspeak.LoginActivity as ComDicodingHandSpeakMainActivity
+import com.dicoding.handspeak.R
+import com.dicoding.handspeak.ui.LoginActivity as ComDicodingHandSpeakMainActivity
 
 
 @Suppress("DEPRECATION")

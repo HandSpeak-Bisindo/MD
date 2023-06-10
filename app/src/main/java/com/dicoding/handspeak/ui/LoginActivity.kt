@@ -1,10 +1,11 @@
-package com.dicoding.handspeak
+package com.dicoding.handspeak.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import com.dicoding.handspeak.R
 import com.dicoding.handspeak.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,7 +17,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -63,12 +63,22 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this){
                 if (it.isSuccessful){
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, HomeFragment::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 }
