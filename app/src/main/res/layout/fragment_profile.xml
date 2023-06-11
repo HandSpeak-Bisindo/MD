@@ -9,27 +9,27 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/photo_profile"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/photo_profile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/photo_profile" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/name_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="215dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:layout_width="172dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/robotoslab_bold"
         android:text="@string/username"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/email_profile"
         app:layout_constraintStart_toEndOf="@+id/photo_profile"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,45 +37,41 @@
         android:id="@+id/email_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/robotoslab_medium"
         android:text="@string/email_profile"
         android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/photo_profile"
         app:layout_constraintTop_toBottomOf="@+id/name_profile" />
 
-
     <ImageView
         android:id="@+id/edit_profile"
-        android:layout_width="31dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="27dp"
-        android:src="@drawable/ic_camera"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="@string/edit_profile"
+        android:src="@drawable/editprofile"
         android:stateListAnimator="@animator/button_press_anim"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/email_profile"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/edit_profile"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="112dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="296dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/robotoslab_medium"
         android:text="@string/seting_profile"
         android:textColor="@color/black"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/language"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photo_profile" />
@@ -96,38 +92,38 @@
 
         <ImageView
             android:id="@+id/logo_language"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="24dp"
+            android:contentDescription="@string/language"
             android:src="@drawable/language"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/language"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="145dp"
+            android:layout_height="24dp"
             android:layout_marginStart="22dp"
             android:fontFamily="@font/robotoslab_medium"
-            android:textColor="@color/black"
             android:text="@string/language"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/logo_language"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/language_arrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="246dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="24dp"
+            android:contentDescription="@string/Next"
             android:src="@drawable/baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/Next"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -163,14 +159,14 @@
 
         <ImageView
             android:id="@+id/logo_about"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="24dp"
+            android:contentDescription="@string/about"
             android:src="@drawable/help"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/about"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_about"
@@ -179,6 +175,7 @@
             android:layout_marginStart="22dp"
             android:fontFamily="@font/robotoslab_medium"
             android:textColor="@color/black"
+            android:textSize="16sp"
             android:text="@string/about"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/logo_about"
@@ -186,15 +183,14 @@
 
         <ImageView
             android:id="@+id/about_arrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="246dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="24dp"
+            android:contentDescription="@string/Next"
             android:src="@drawable/baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/Next"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,12 +223,11 @@
 
         <ImageView
             android:id="@+id/logo_logout"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="24dp"
             android:contentDescription="@string/logout"
             android:src="@drawable/logout"
-            android:backgroundTint="@color/red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -243,20 +238,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:fontFamily="@font/robotoslab_medium"
-            android:textColor="@color/red"
             android:text="@string/logout"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/logo_logout"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logout_arrrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="246dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="24dp"
             android:contentDescription="@string/Next"
-            android:src="@drawable/logut_ic"
+            android:src="@drawable/baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
