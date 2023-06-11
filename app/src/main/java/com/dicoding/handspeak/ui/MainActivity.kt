@@ -9,7 +9,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.handspeak.R
-import com.dicoding.handspeak.ScanActivity
 import com.dicoding.handspeak.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

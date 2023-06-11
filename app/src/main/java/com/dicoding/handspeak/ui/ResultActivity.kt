@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dicoding.handspeak.R
-import com.dicoding.handspeak.ScanActivity
 import com.dicoding.handspeak.databinding.ActivityResultBinding
 import java.io.File
 

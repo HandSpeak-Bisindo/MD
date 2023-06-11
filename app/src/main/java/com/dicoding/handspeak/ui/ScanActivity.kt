@@ -1,4 +1,4 @@
-package com.dicoding.handspeak
+package com.dicoding.handspeak.ui
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver
@@ -19,13 +19,13 @@ import androidx.core.content.FileProvider
 import com.dicoding.handspeak.databinding.ActivityScanBinding
 import com.dicoding.handspeak.responses.ScanResponse
 import com.dicoding.handspeak.retrofit.ApiConfig
-import com.dicoding.handspeak.ui.ResultActivity
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -33,16 +33,16 @@ import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 import android.Manifest
-import com.dicoding.handspeak.ui.MainActivity
+import android.graphics.Bitmap
+import android.view.View
+import com.dicoding.handspeak.R
 import java.util.Locale
-
 
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding
     private lateinit var currentPhotoPath: String
     private var getFile: File? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +55,6 @@ class ScanActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         binding.btnCamera.setOnClickListener {
             requestCameraPermission()
         }
@@ -67,7 +66,6 @@ class ScanActivity : AppCompatActivity() {
         binding.btnUpload.setOnClickListener {
             uploadImage()
         }
-
     }
 
     private val launcherIntentCamera = registerForActivityResult(
@@ -93,11 +91,10 @@ class ScanActivity : AppCompatActivity() {
                 it
             )
             currentPhotoPath = it.absolutePath
-            intent. putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
             launcherIntentCamera.launch(intent)
         }
     }
-
 
     private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -114,7 +111,6 @@ class ScanActivity : AppCompatActivity() {
     }
 
     private fun requestCameraPermission() {
-
         val cameraPermission = Manifest.permission.CAMERA
         val hasCameraPermission = ContextCompat.checkSelfPermission(
             this,
@@ -172,7 +168,6 @@ class ScanActivity : AppCompatActivity() {
         return myFile
     }
 
-
     private fun createCustomTempFile(context: Context): File {
         val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile(timeStamp, ".jpg", storageDir)
@@ -183,18 +178,35 @@ class ScanActivity : AppCompatActivity() {
         Locale.US
     ).format(System.currentTimeMillis())
 
+    private fun reduceFileImage(file: File): File {
+        val bitmap = BitmapFactory.decodeFile(file.path)
+        var compressQuality = 100
+        var streamLength: Int
+        do {
+            val bmpStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+            val bmpPicByteArray = bmpStream.toByteArray()
+            streamLength = bmpPicByteArray.size
+            compressQuality -= 5
+        } while (streamLength > MAXIMAL_SIZE)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+        return file
+    }
 
     private fun uploadImage() {
         if (getFile != null) {
-
             val file = getFile as File
+            val reducedFile = reduceFileImage(file)
 
-            val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
+            val requestImageFile = reducedFile.asRequestBody("image/jpeg".toMediaType())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
                 "img",
-                file.name,
+                reducedFile.name,
                 requestImageFile
             )
+
+            // Menampilkan ProgressBar
+            binding.progressBar.visibility = View.VISIBLE
 
             val apiService = ApiConfig.getApiService()
             val uploadImageRequest = apiService.uploadImage(imageMultipart)
@@ -202,7 +214,10 @@ class ScanActivity : AppCompatActivity() {
                 override fun onResponse(
                     call: Call<ScanResponse>,
                     response: Response<ScanResponse>
-                ){
+                ) {
+                    // Menyembunyikan ProgressBar setelah mendapatkan respons
+                    binding.progressBar.visibility = View.GONE
+
                     if (response.isSuccessful) {
                         val scanResponse = response.body()
                         if (scanResponse != null) {
@@ -211,30 +226,35 @@ class ScanActivity : AppCompatActivity() {
                             val intent = Intent(this@ScanActivity, ResultActivity::class.java)
 
                             // Menyisipkan data ke dalam Intent
-
                             intent.putExtra("response", result)
-                            intent.putExtra("imagePath", getFile?.path)
+                            intent.putExtra("imagePath", reducedFile.path)
                             startActivity(intent)
                         }
                     } else {
-//                        error output
+                        // Penanganan kesalahan saat upload gambar
                     }
                 }
+
                 override fun onFailure(call: Call<ScanResponse>, t: Throwable) {
+                    // Menyembunyikan ProgressBar saat terjadi kegagalan
+                    binding.progressBar.visibility = View.GONE
+
                     Toast.makeText(this@ScanActivity, t.message, Toast.LENGTH_SHORT).show()
-
-
                 }
             })
 
         } else {
-            Toast.makeText(this@ScanActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@ScanActivity,
+                "Silakan masukkan berkas gambar terlebih dahulu.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
     companion object {
         const val FILENAME_FORMAT = "dd-MMM-yyyy"
         private const val CAMERA_PERMISSION_REQUEST_CODE = 1001
-
+        private const val MAXIMAL_SIZE = 1000000
     }
 }

@@ -1,6 +1,7 @@
 package com.dicoding.handspeak.ui
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -9,7 +10,10 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.handspeak.R
 import com.dicoding.handspeak.databinding.ActivitySettingBinding
+import com.dicoding.handspeak.ui.profile.ProfileFragment
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
@@ -28,6 +32,7 @@ class SettingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        FirebaseApp.initializeApp(this)
 
         val user = firebaseAuth.currentUser
 
@@ -36,7 +41,6 @@ class SettingActivity : AppCompatActivity() {
                 Picasso.get().load(user.photoUrl).into(binding.imagePhoto)
             }
         }
-
 
         binding.etName.setText(user?.displayName)
 
@@ -72,6 +76,7 @@ class SettingActivity : AppCompatActivity() {
                         if (it.isSuccessful) {
                             Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show()
                             profileUpdateListener?.onProfileUpdated(name, image)
+                            updateUsernameInProfile(name) // Tambahkan ini
                         } else {
                             Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT)
                                 .show()
@@ -80,7 +85,6 @@ class SettingActivity : AppCompatActivity() {
                 }
         }
     }
-
 
     @SuppressLint("QueryPermissionsNeeded")
     private fun intentCamera() {
@@ -93,13 +97,12 @@ class SettingActivity : AppCompatActivity() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CAMERA && resultCode == Activity.RESULT_OK) {
             val imgBitmap = data?.extras?.get("data") as Bitmap
             uploadImage(imgBitmap)
-        } else if (requestCode == REQUEST_GALLERY && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_GALLERY && resultCode == Activity.RESULT_OK) {
             val selectedImage = data?.data
             selectedImage?.let {
                 val imgBitmap =
@@ -118,14 +121,21 @@ class SettingActivity : AppCompatActivity() {
         val image = baos.toByteArray()
 
         ref.putBytes(image)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    ref.downloadUrl.addOnCompleteListener {
-                        it.result?.let {
-                            imageUri = it
-                            binding.imagePhoto.setImageBitmap(imgBitmap)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    ref.downloadUrl.addOnCompleteListener { url ->
+                        url.result?.let { photoUrl ->
+                            Picasso.get().load(photoUrl).into(binding.imagePhoto)
+                            imageUri = photoUrl
+                            // Mengirim URL foto profil ke ProfileFragment
+                            val profileFragment =
+                                supportFragmentManager.findFragmentById(R.id.photo_profile) as? ProfileFragment
+                            profileFragment?.updateProfilePhoto(photoUrl.toString())
                         }
                     }
+                    Toast.makeText(this, "Image Uploaded", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -134,33 +144,34 @@ class SettingActivity : AppCompatActivity() {
         val options = arrayOf("Camera", "Gallery")
 
         AlertDialog.Builder(this)
-            .setTitle("Select Image")
+            .setTitle("Choose image from")
             .setItems(options) { _, which ->
                 when (which) {
-                    0 -> intentCamera()
-                    1 -> choosePictureFromGallery()
+                    0 -> {
+                        intentCamera()
+                    }
+                    1 -> {
+                        Intent(Intent.ACTION_PICK).also { intent ->
+                            intent.type = "image/*"
+                            startActivityForResult(intent, REQUEST_GALLERY)
+                        }
+                    }
                 }
-            }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
             }
             .show()
     }
 
-    @SuppressLint("IntentReset")
-    private fun choosePictureFromGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
-        startActivityForResult(intent, REQUEST_GALLERY)
-    }
-
-
-    interface ProfileUpdateListener {
-        fun onProfileUpdated(name: String?, photoUrl: Uri?)
+    private fun updateUsernameInProfile(username: String) {
+        val intent = Intent()
+        intent.putExtra("username", username)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
     companion object {
-        const val REQUEST_CAMERA = 100
-        const val REQUEST_GALLERY = 101
+        private const val REQUEST_CAMERA = 100
+        private const val REQUEST_GALLERY = 200
     }
 }
+
+
