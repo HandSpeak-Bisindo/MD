@@ -3,12 +3,14 @@ package com.dicoding.handspeak.ui.profile
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.dicoding.handspeak.databinding.FragmentProfileBinding
 import com.dicoding.handspeak.ui.LoginActivity
@@ -66,6 +68,11 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), LoginActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             })
+        }
+
+        val tvLanguage: ConstraintLayout = binding.language
+        tvLanguage.setOnClickListener {
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
         return root

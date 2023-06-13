@@ -6,7 +6,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login_btn">Login</string>
-    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="belum_punya_akun">Dont have an account yet?</string>
     <string name="register">Register</string>
     <string name="enter_your_full_name">Enter your full name</string>
     <string name="full_name">Full Name</string>
@@ -16,12 +16,12 @@
     <string name="gallery">Gallery</string>
     <string name="upload">Upload</string>
     <string name="input_name">Please input your name</string>
-    <string name="password_empty">Isi Password Terlebih Dahulu</string>
-    <string name="input_email">Email Tidak Valid</string>
-    <string name="email_empty">Isi Email Terlebih Dahulu</string>
-    <string name="input_password">Password Minimal 6 karakter</string>
+    <string name="password_empty">Please fill in the password field</string>
+    <string name="input_email">Invalid Email</string>
+    <string name="email_empty">Please fill in the email field</string>
+    <string name="input_password">Password must be at least 6 characters</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="profile_picture">profile pic</string>
+    <string name="profile_picture">Profile Picture</string>
     <string name="profile_name">John</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="title_activity_main">MainActivity</string>
@@ -29,62 +29,61 @@
     <string name="title_camera">Camera</string>
     <string name="title_profile">Profile</string>
     <string name="logout">Logout</string>
-    <string name="welcome">WELCOME TO handspeak</string>
+    <string name="welcome">WELCOME TO HandSpeak</string>
     <string name="choose_picture">Choose a picture</string>
     <string name="package_name">com.dicoding.handspeak</string>
-    <string name="result">Hasil</string>
+    <string name="result">Result</string>
     <string name="email_profile">username@gmail.com</string>
-    <string name="back_page">back_page</string>
+    <string name="back_page">Back</string>
     <string name="save">Save</string>
-    <string name="seting_profile">Setting Profile</string>
+    <string name="seting_profile">Profile Settings</string>
     <string name="language">Change Language</string>
-    <string name="term_of_service">TO</string>
+    <string name="term_of_service">Terms of Service</string>
     <string name="about">About</string>
-    <string name="rate_app">Rate</string>
-    <string name="Next">next_page</string>
-    <string name="hasil">Jawabannya Adalah Huruf:</string>
-    <string name="retake">retake</string>
-    <string name="image_result">image_result</string>
-    <string name="image_scan">image_scan</string>
+    <string name="Next">Next</string>
+    <string name="hasil">The Answer Is:</string>
+    <string name="retake">Retake</string>
+    <string name="image_result">Image Result</string>
+    <string name="image_scan">Image Scan</string>
     <string name="alphabet">Alphabet</string>
-    <string name="kata_sifat_activity">Kata Sifat Activity</string>
+    <string name="kata_sifat_activity">Adjective Activity</string>
     <string name="alphabet_activity">Alphabet Activity</string>
-    <string name="numerik_activity">Numerik Activity</string>
+    <string name="numerik_activity">Numerical Activity</string>
     <string name="dictionary_activity">Dictionary Activity</string>
-    <string name="current_language">Bahasa</string>
-    <string name="change_language">Ubah Bahasa</string>
-    <string name="huruf">Huruf</string>
+    <string name="current_language">Language</string>
+    <string name="change_language">Change Language</string>
+    <string name="huruf">Letter</string>
     <string name="description">Description</string>
-    <string name="alphabet_activity_label">Belajar Alphabet</string>
+    <string name="alphabet_activity_label">Learn Alphabet</string>
+
 
     <string-array name="data_name">
-        <item>Huruf A</item>
-        <item>Huruf B</item>
-        <item>Huruf C</item>
-        <item>Huruf D</item>
-        <item>Huruf E</item>
-        <item>Huruf F</item>
-        <item>Huruf G</item>
-        <item>Huruf H</item>
-        <item>Huruf I</item>
-        <item>Huruf J</item>
-        <item>Huruf K</item>
-        <item>Huruf L</item>
-        <item>Huruf M</item>
-        <item>Huruf N</item>
-        <item>Huruf O</item>
-        <item>Huruf P</item>
-        <item>Huruf Q</item>
-        <item>Huruf R</item>
-        <item>Huruf S</item>
-        <item>Huruf T</item>
-        <item>Huruf U</item>
-        <item>Huruf V</item>
-        <item>Huruf W</item>
-        <item>Huruf X</item>
-        <item>Huruf Y</item>
-        <item>Huruf Z</item>
-
+        <item>Letter A</item>
+        <item>Letter B</item>
+        <item>Letter C</item>
+        <item>Letter D</item>
+        <item>Letter E</item>
+        <item>Letter F</item>
+        <item>Letter G</item>
+        <item>Letter H</item>
+        <item>Letter I</item>
+        <item>Letter J</item>
+        <item>Letter K</item>
+        <item>Letter L</item>
+        <item>Letter M</item>
+        <item>Letter N</item>
+        <item>Letter O</item>
+        <item>Letter P</item>
+        <item>Letter Q</item>
+        <item>Letter R</item>
+        <item>Letter S</item>
+        <item>Letter T</item>
+        <item>Letter U</item>
+        <item>Letter V</item>
+        <item>Letter W</item>
+        <item>Letter X</item>
+        <item>Letter Y</item>
+        <item>Letter Z</item>
     </string-array>
 
 
