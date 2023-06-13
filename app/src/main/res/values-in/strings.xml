@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">HandSpeak</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="login_logo">Logo Masuk</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="password">Kata Sandi</string>
+    <string name="login_btn">Masuk</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="register">Daftar</string>
+    <string name="enter_your_full_name">Masukkan nama lengkap Anda</string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="home">Beranda</string>
+    <string name="camera">Kamera</string>
+    <string name="profile">Profil</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="input_name">Silakan masukkan nama Anda</string>
+    <string name="password_empty">Silakan isi kolom kata sandi</string>
+    <string name="input_email">Email tidak valid</string>
+    <string name="email_empty">Silakan isi kolom email</string>
+    <string name="input_password">Kata sandi harus terdiri dari minimal 6 karakter</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="profile_picture">Foto Profil</string>
+    <string name="profile_name">John</string>
+    <string name="edit_profile">Edit Profil</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_camera">Kamera</string>
+    <string name="title_profile">Profil</string>
+    <string name="logout">Keluar</string>
+    <string name="welcome">SELAMAT DATANG DI HandSpeak</string>
+    <string name="choose_picture">Pilih gambar</string>
+    <string name="package_name">com.dicoding.handspeak</string>
+    <string name="result">Hasil</string>
+    <string name="email_profile">pengguna@gmail.com</string>
+    <string name="back_page">Kembali</string>
+    <string name="save">Simpan</string>
+    <string name="seting_profile">Pengaturan Profil</string>
+    <string name="language">Ganti Bahasa</string>
+    <string name="term_of_service">Syarat dan Ketentuan</string>
+    <string name="about">Tentang</string>
+    <string name="Next">Selanjutnya</string>
+    <string name="hasil">Jawabannya adalah huruf:</string>
+    <string name="retake">Ambil Ulang</string>
+    <string name="image_result">Hasil Gambar</string>
+    <string name="image_scan">Pindai Gambar</string>
+    <string name="alphabet">Alfabet</string>
+    <string name="kata_sifat_activity">Aktivitas Kata Sifat</string>
+    <string name="alphabet_activity">Aktivitas Alfabet</string>
+    <string name="numerik_activity">Aktivitas Numerik</string>
+    <string name="dictionary_activity">Aktivitas Kamus</string>
+    <string name="current_language">Bahasa</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="huruf">Huruf</string>
+    <string name="description">Deskripsi</string>
+    <string name="alphabet_activity_label">Belajar Alfabet</string>
+
+
+
+
+
+    <string-array name="data_name">
+        <item>Huruf A</item>
+        <item>Huruf B</item>
+        <item>Huruf C</item>
+        <item>Huruf D</item>
+        <item>Huruf E</item>
+        <item>Huruf F</item>
+        <item>Huruf G</item>
+        <item>Huruf H</item>
+        <item>Huruf I</item>
+        <item>Huruf J</item>
+        <item>Huruf K</item>
+        <item>Huruf L</item>
+        <item>Huruf M</item>
+        <item>Huruf N</item>
+        <item>Huruf O</item>
+        <item>Huruf P</item>
+        <item>Huruf Q</item>
+        <item>Huruf R</item>
+        <item>Huruf S</item>
+        <item>Huruf T</item>
+        <item>Huruf U</item>
+        <item>Huruf V</item>
+        <item>Huruf W</item>
+        <item>Huruf X</item>
+        <item>Huruf Y</item>
+        <item>Huruf Z</item>
+
+    </string-array>
+
+
+    <integer-array name="data_photo">
+        <item>@drawable/a</item>
+        <item>@drawable/b</item>
+        <item>@drawable/c</item>
+        <item>@drawable/d</item>
+        <item>@drawable/e</item>
+        <item>@drawable/f</item>
+        <item>@drawable/g</item>
+        <item>@drawable/h</item>
+        <item>@drawable/i</item>
+        <item>@drawable/j</item>
+        <item>@drawable/k</item>
+        <item>@drawable/l</item>
+        <item>@drawable/m</item>
+        <item>@drawable/n</item>
+        <item>@drawable/o</item>
+        <item>@drawable/p</item>
+        <item>@drawable/q</item>
+        <item>@drawable/r</item>
+        <item>@drawable/s</item>
+        <item>@drawable/t</item>
+        <item>@drawable/u</item>
+        <item>@drawable/v</item>
+        <item>@drawable/w</item>
+        <item>@drawable/x</item>
+        <item>@drawable/y</item>
+        <item>@drawable/z</item>
+    </integer-array>
+
+
+
+</resources>

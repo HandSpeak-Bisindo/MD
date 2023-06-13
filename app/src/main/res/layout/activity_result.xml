@@ -17,6 +17,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/retake"
+        android:stateListAnimator="@animator/button_press_anim"
         android:src="@drawable/cameras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
